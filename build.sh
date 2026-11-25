@@ -69,11 +69,11 @@ fi
 "$BT/apksigner" sign --ks debug.jks \
   --ks-key-alias inkdesktop --ks-pass pass:123456 --key-pass pass:123456 \
   --v1-signing-enabled true --v2-signing-enabled true \
-  --out build/InkDesktop-v1.6.apk build/aligned.apk
+  --out build/InkDesktop-v1.5.apk build/aligned.apk
 
 export JAVA_HOME="$(cd "$JDK/.." && pwd)"
-"$BT/apksigner" verify --print-certs build/InkDesktop-v1.6.apk | head -6
+"$BT/apksigner" verify --print-certs build/InkDesktop-v1.5.apk | head -6
 echo ""
 echo "==> 完成"
-ls -lh build/InkDesktop-v1.6.apk
-echo "路径: $ROOT/build/InkDesktop-v1.6.apk"
+ls -lh build/InkDesktop-v1.5.apk
+echo "路径: $ROOT/build/InkDesktop-v1.5.apk"
