@@ -11,7 +11,6 @@
 - **管理首页**：勾选式点选应用，加入或移出首页。
 - **排序首页**：点应用上移调整顺序，自动保存。
 - **设为默认桌面**：通过 Home 键选择或在应用内跳转系统设置完成，无需 root。
-- **返回首页全屏强刷**：从应用列表返回首页时自动触发一次全屏刷新，消除残影。
 
 ## 墨水屏优化
 
@@ -24,7 +23,7 @@
 
 下载 APK 直接安装：
 
-- 直接下载：https://github.com/roboggo/laokaUI/releases/download/v1.6/InkDesktop-v1.6.apk
+- 直接下载：https://github.com/roboggo/laokaUI/releases/download/v1.5/InkDesktop-v1.5.apk
 - 或访问仓库 Releases 页面：https://github.com/roboggo/laokaUI
 
 安装后设为默认桌面：按 Home 键，在弹窗中选择「老卡桌面」并勾选「始终」。
@@ -37,7 +36,7 @@
 ./build.sh
 ```
 
-产物为 `build/InkDesktop-v1.6.apk`。签名密钥 `debug.jks` 不存在时会自动生成。
+产物为 `build/InkDesktop-v1.5.apk`。签名密钥 `debug.jks` 不存在时会自动生成。
 
 ## 源码
 
