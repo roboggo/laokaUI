@@ -1,11 +1,11 @@
-# 老卡墨水屏桌面（InkDesktop）v1.4
+# 老卡桌面（InkDesktop）v1.5
 
 给汉王 Clear7 Turbo+（设备型号 HANVON P7，Android 14，1264×1680，330dpi）做的轻量桌面 Launcher，用来替代原厂桌面。
 
 ## 成品
 
-- APK：`build/InkDesktop-v1.4.apk`（约 24KB，已签名，v2/v3 签名）
-- 应用名：老卡墨水屏桌面（包名仍为 `com.inklauncher.minimal`）
+- APK：`build/InkDesktop-v1.5.apk`（约 29KB，已签名，v2/v3 签名）
+- 应用名：老卡桌面（包名仍为 `com.inklauncher.minimal`）
 - 包名：`com.inklauncher.minimal`
 - minSdk 24 / targetSdk 34
 
@@ -36,8 +36,14 @@
 - 原生 View 构建 UI，不依赖 AndroidX / WebView，APK 极小、内存占用低。
 - 单个坏应用（如失效的预置 APK）的标签加载异常会被隔离，不会让整个列表加载失败。
 
+## GitHub 发布
+
+- 仓库：https://github.com/roboggo/laokaUI （公开）
+- Release 下载：https://github.com/roboggo/laokaUI/releases/download/v1.5/InkDesktop-v1.5.apk
+
 ## 已验证（2026-11-25 真机，USB 设备 c4443ee3）
 
+- 应用名「老卡桌面」与黑白四宫格图标已在系统应用详情页确认。
 - 安装成功，无崩溃；首页时间日期居中放大完整、无电量、无「设为桌面」、12 个 96dp 常用图标三行完整显示。
 - 底部三块 tab 比例 1:2:1；左「系统设置」实测打开 `hanvon.aebr.hvsettings`，右「安卓设置」实测打开 `com.android.settings`，中间进全部应用页。
 - 全部应用页 header 四个按钮同行不重叠，5 列 72dp 图标网格、搜索过滤、点击启动均正常。
@@ -47,7 +53,7 @@
 ## 安装与设为默认桌面
 
 ```bash
-adb install -r build/InkDesktop-v1.4.apk
+adb install -r build/InkDesktop-v1.5.apk
 ```
 
 设为默认桌面二选一：
