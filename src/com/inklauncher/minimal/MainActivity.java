@@ -324,7 +324,44 @@ public class MainActivity extends Activity {
         homePage.setVisibility(toAll ? View.GONE : View.VISIBLE);
         allPage.setVisibility(toAll ? View.VISIBLE : View.GONE);
         // 每次进入更多应用页都从顶部开始，避免上次滚动位置残留导致首行被压住
-        if (toAll) allGrid.setSelection(0);
+        if (toAll) {
+            allGrid.setSelection(0);
+        } else {
+            // 返回首页时触发墨水屏全屏强刷，消除残影；
+            // post 到下一帧，确保刷的是切换后的新画面
+            homePage.post(new Runnable() {
+                public void run() { fullRefresh(); }
+            });
+        }
+    }
+
+    // 墨水屏全屏强刷：通过 eink 系统服务的 setProperty 触发一帧全刷。
+    // 用反射 + Parcel 调用，不依赖隐藏 API 编译；任何失败都静默忽略，保证通用性。
+    private static int fullRefreshSeq = 0;
+
+    private void fullRefresh() {
+        try {
+            Class<?> sm = Class.forName("android.os.ServiceManager");
+            java.lang.reflect.Method getService = sm.getMethod("getService", String.class);
+            Object binder = getService.invoke(null, "eink");
+            if (binder == null) return;
+
+            android.os.Parcel data = android.os.Parcel.obtain();
+            android.os.Parcel reply = android.os.Parcel.obtain();
+            try {
+                data.writeInterfaceToken("android.os.IEinkManager");
+                data.writeString("sys.eink.one_full_mode_timeline");
+                fullRefreshSeq++;
+                data.writeString(String.valueOf(fullRefreshSeq));
+                // TRANSACTION_setProperty = 5
+                ((android.os.IBinder) binder).transact(5, data, reply, 0);
+            } finally {
+                data.recycle();
+                reply.recycle();
+            }
+        } catch (Throwable ignored) {
+            // 非墨水屏设备或系统未开放该服务时静默跳过
+        }
     }
 
     private void toggleEditMode() {
