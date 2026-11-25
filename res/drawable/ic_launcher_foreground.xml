@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 老卡墨水屏桌面 图标前景：粗线条屏幕外框 + 四宫格，纯黑白高对比，适合墨水屏 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 屏幕外框：粗描边圆角矩形 -->
+    <path
+        android:pathData="M34,26 L74,26 Q82,26 82,34 L82,74 Q82,82 74,82 L34,82 Q26,82 26,74 L26,34 Q26,26 34,26 Z"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="7"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- 四宫格应用块 -->
+    <path android:pathData="M38,38 L50,38 L50,50 L38,50 Z" android:fillColor="#FF000000" />
+    <path android:pathData="M58,38 L70,38 L70,50 L58,50 Z" android:fillColor="#FF000000" />
+    <path android:pathData="M38,58 L50,58 L50,70 L38,70 Z" android:fillColor="#FF000000" />
+    <path android:pathData="M58,58 L70,58 L70,70 L58,70 Z" android:fillColor="#FF000000" />
+</vector>
